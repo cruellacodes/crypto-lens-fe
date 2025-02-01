@@ -1,10 +1,9 @@
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 
-
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const Charts = () => {
+const PriceChart = ({ token }) => {
   const data = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
     datasets: [
@@ -21,17 +20,25 @@ const Charts = () => {
     responsive: true,
     plugins: {
       legend: {
-        position: 'top',
+        display: false,
+      },
+    },
+    scales: {
+      x: {
+        display: false,
+      },
+      y: {
+        display: false,
       },
     },
   };
 
   return (
-    <div className="bg-gray-900 p-6 rounded-lg shadow-lg">
-      <h2 className="text-2xl font-bold mb-4">Charts</h2>
-      <Line data={data} options={options} />
+    <div>
+      <h2 className="text-xl font-bold mb-2">Price Chart</h2>
+      <Line data={data} options={options} height={100} />
     </div>
   );
 };
 
-export default Charts;
+export default PriceChart;

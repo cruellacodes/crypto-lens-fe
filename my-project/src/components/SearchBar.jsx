@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 
-const SearchBar = () => {
+const SearchBar = ({ onTokenSelect }) => {
   const [query, setQuery] = useState('');
 
   const handleSearch = () => {
-    // Fetch token data based on the query
-    console.log('Searching for:', query);
+    const token = {
+      name: query,
+      price: '$2.50',
+      marketCap: '$500M',
+      sentiment: 'Positive',
+      priceChange: '+2.5%',
+    };
+    onTokenSelect(token);
   };
 
   return (
