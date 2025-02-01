@@ -1,12 +1,32 @@
-import React from "react";
-import Dashboard from "./components/dashboard";
+import React from 'react';
+import Header from './components/Header';
+import SearchBar from './components/SearchBar';
+import TokenInfo from './components/TokenInfo';
+import Charts from './components/Charts';
+import Leaderboard from './components/Leaderboard';
 
-function App() {
+const App = () => {
   return (
-    <div className="bg-gray-900 min-h-screen text-white">
-      <Dashboard />
+    <div className="min-h-screen bg-black text-green-400 font-mono p-6">
+      {/* Header */}
+      <Header />
+
+      {/* Search Bar */}
+      <SearchBar />
+
+      {/* Main Content */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        {/* Token Info */}
+        <TokenInfo />
+
+        {/* Charts */}
+        <Charts />
+      </div>
+
+      {/* Leaderboard */}
+      <Leaderboard />
     </div>
   );
-}
+};
 
 export default App;
