@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import solanaIcon from '../assets/solana.png';
 
 const Leaderboard = ({ onTokenSelect }) => {
   const [sortBy, setSortBy] = useState('womScore'); // Default sorting by WOM score
@@ -77,11 +78,19 @@ const Leaderboard = ({ onTokenSelect }) => {
               >
                 {/* Chain (Icon only) */}
                 <td className="py-2">
-                  <img
-                    src={`https://cryptologos.cc/logos/${token.chain.toLowerCase()}-${token.chain.toLowerCase()}-logo.png`}
-                    alt={token.chain}
-                    className="w-6 h-6"
-                  />
+                  {token.chain === 'SOL' ? (
+                    <img
+                        src={solanaIcon}
+                        alt={token.chain}
+                        className="w-6 h-6"
+                    />
+                  ) : (
+                    <img
+                        src={solanaIcon}
+                        alt={token.chain}
+                        className="w-6 h-6"
+                    />
+                  )}
                 </td>
 
                 {/* Token (Symbol) */}
